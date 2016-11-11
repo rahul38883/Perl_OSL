@@ -32,6 +32,12 @@ while(1){
 &reset_game();
 &play_the_game();
 
+sub game_finished{
+	&display_game_board();
+	print "\n Press any key to continue: ";
+	$reply = <STDIN>;
+}
+
 sub reset_game{
 
 	$a1 = " "; 
@@ -51,12 +57,6 @@ sub reset_game{
 	
 }
 
-sub game_finished{
-	&display_game_board();
-	print "\n Press any key: ";
-	$reply = <STDIN>;
-}
-
 sub play_the_game{
 
 	my $isfinished = 0;
@@ -65,19 +65,19 @@ sub play_the_game{
   
 	until($isfinished){
 		if($winner eq "X"){
-			$message = "GAME OVER: Player X has won!";
+			$message = "GAME OVER: Player X has won!!";
 			&game_finished();
 			return;
 		}
 	
 		if($winner eq "O"){
-			$message = "GAME OVER: Player O has won!";
+			$message = "GAME OVER: Player O has won!!";
 			&game_finished();
 			return;
 		}
 
 		if($winner eq "tie"){
-			$message = "GAME OVER: Tie!";
+			$message = "GAME OVER: Tie!!";
 			&game_finished();
 			return;
 		}
